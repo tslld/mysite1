@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tslld个人博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
+    <link rel="stylesheet" href="{% static 'header.css' %}">
+    <link rel="icon" href="/media/favicon.ico">
+    {% block head_extends %}{% endblock %}
+<!--    <link rel="stylesheet" href="{% static 'layui/css/layui.css' %}">-->
+<!--    <script type="text/javascript" src="{% static 'layui/layui.js' %}"></script>-->
+</head>
+<body>
+
+<header>
+    <div>
+        <div id="imglogo">
+            <a href="/"><img src="/media/yexinbao.jpg" alt="叶新宝的博客" title="叶新宝的博客"></a>
+        </div>
+        <div id="textlogo">
+            <h1 class="site-name">
+                <a href="/" title="叶新宝的博客">叶新宝的博客</a>
+            </h1>
+            <h2 class="blog-motto">
+                勾勒岀未来的轮廓线，订下勇往直前的准则。
+                <br>
+                微小的梦想，全部点燃。
+                <br>
+                用这份光芒刺破黑暗，粉碎了的壁垒另一边，我看见了属于自己的天空。
+            </h2>
+        </div>
+        <div class="navbar">
+            <a class="navbutton navmobile" href="#" title="菜单"></a>
+        </div>
+        <nav class="animated">
+            <ul>
+
+                <li><a href="{% url 'home' %}">主页</a></li>
+
+                <li><a href="{% url 'blog_list' %}">文章归档</a></li>
+
+                <li><a href="https://github.com/tslld">未完待续</a></li>>
+
+                <li>
+
+                    <!--<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+                        <label>Search</label>
+                        <input type="text" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+                        <input type="hidden" name="q" value="site:blog.720ui.com">
+                    </form>-->
+
+                </li>
+            </ul>
+        </nav>
+    </div>
+</header>
+{% block content %}
+{% endblock %}
+</body>
+</html>

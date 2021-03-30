@@ -1,0 +1,132 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load myfilters1 %}
+
+{% block head_extends %}
+    <link rel="stylesheet" href="{% static 'container.css' %}">
+{% endblock %}
+
+{% block content %}
+<div id="container">
+    <div id="main">
+        {% for blog in page_of_blogs %}
+        <div id="article-index">
+            <header class="article-info clearfix">
+<!--                ::before-->
+                <h1 itemprop="name">
+                    <a href="{% url 'blog_detail' blog.pk %}" title="" itemprop="url">{{ blog.title }}</a>
+                </h1>
+                <p class="article-time">
+                    作者：{{ blog.author }}
+<!--                    发表于-->
+<!--                    <time datetime="2020-11-17T14:30:00.000Z" itemprop="datePublished">2020-11-17</time>-->
+
+<!--                      |-->
+
+<!--                      工具技巧-->
+
+
+<!--                      |-->
+
+<!--                      运维-->
+
+                </p>
+<!--                ::after-->
+            </header>
+
+            <section class="post" itemscope="" itemprop="blogPost">
+
+                <a href="{% url 'blog_detail' blog.pk %}" title="{{ blog.title }}" itemprop="url">
+
+                <!--<h1 itemprop="name">WSL2：我在原生的Win10玩转Linux系统</h1>-->
+
+
+                       <p itemprop="description">{{ blog.content|truncatechars:120 }}</p>
+
+
+                <!--<time datetime="2020-11-17T14:30:00.000Z" itemprop="datePublished">2020-11-17</time>-->
+              </a>
+            </section>
+        </div>
+        {% endfor %}
+        <nav id="page-nav" class="clearfix">
+            {% if page_of_blogs.has_previous %}
+                <a class="extend prev" rel="prev" href="?page={{ page_of_blogs.previous_page_number }}">« Prev</a>
+            {% endif %}
+            {% if page_of_blogs.number|judge %}
+                <a class="page-number" href="?page=1">1</a>
+                <span class="space">…</span>
+                <a class="page-number" href="?page={{ page_of_blogs.number|add:-2 }}">{{ page_of_blogs.number|add:-2 }}</a>
+                <a class="page-number" href="?page={{ page_of_blogs.number|add:-1 }}">{{ page_of_blogs.number|add:-1 }}</a>
+            {% else %}
+                {% for object in page_of_blogs.number|judge1 %}
+                    <a class="page-number" href="?page={{ object }}">{{ object }}</a>
+                {% endfor %}
+            {% endif %}
+            <span class="page-number current">{{ page_of_blogs.number }}</span>
+            {% if page_of_blogs.number|judge2:page_of_blogs.paginator.num_pages %}
+                <a class="page-number" href="?page={{ page_of_blogs.number|add:1 }}">{{ page_of_blogs.number|add:1 }}</a>
+                <a class="page-number" href="?page={{ page_of_blogs.number|add:2 }}">{{ page_of_blogs.number|add:2 }}</a>
+                <span class="space">…</span>
+                <a class="page-number" href="?page={{ page_of_blogs.paginator.num_pages }}">{{ page_of_blogs.paginator.num_pages }}</a>
+            {% else %}
+                {% for object in page_of_blogs.number|judge3:page_of_blogs.paginator.num_pages %}
+                    <a class="page-number" href="?page={{ object }}">{{ object }}</a>
+                {% endfor %}
+            {% endif %}
+            {% if page_of_blogs.has_next %}
+                <a class="extend next" rel="next" href="?page={{ page_of_blogs.next_page_number }}">Next »</a>
+            {% endif %}
+        </nav>
+    </div>
+    <div class="openaside" style="top: 260px;">
+        <a class="navbutton" href="#" title="显示侧边栏"></a>
+    </div>
+    <div id="asidepart">
+        <aside id="profile">
+            <div class="inner">
+                <div class="base-info profile-block">
+                    <img id="avatar" src="/media/yexinbao.jpg" style="width: 180px; height: 180px">
+                    <h2 id="name">叶新宝</h2>
+                    <h3 id="title"><p style="color:#7ebadf;font-size:14px">Python工程师</p><p style="color:#7ebadf;font-size:14px">人生苦短，我学Python</p></h3>
+
+                    <hr style="margin-top: 2em;margin-bottom: 2em;white-space: normal;height: 11px;overflow: visible;border-style: none none none solid;border-left-width: 30px;border-left-color: rgb(26, 115, 186);color: rgb(136, 136, 136);font-size: 14px;letter-spacing: 1.5px;text-align: justify;max-width: 100% !important;box-sizing: border-box !important;word-wrap: break-word !important;background-color: rgb(38, 189, 207);">
+                    <img id="avatar" src="/media/VX.jpg" alt="微信二维码" style="width:200px;">
+                </div>
+                <div class="links-of-author profile-block">
+                      <span class="links-of-con-item">邮件：<a href="mailto:tslld727@163.com">tslld727@163.com</a></span>
+                      <br>
+                      <span class="links-of-con-item">微信：<a href="####">tslld326</a>
+
+                </span></div>
+<!--                <div class="links-of-author">-->
+<!--                      <span class="links-of-author-item">-->
+<!--                        <a href="https://github.com/lianggzone" target="_blank" title="GitHub"><i class="fa fa-fw fa-globe"></i>GitHub</a>-->
+<!--                      </span>-->
+<!--                      <span class="links-of-author-item">-->
+<!--                        <a href="https://www.yuque.com/server_mind/answer" target="_blank" title="语雀"><i class="fa fa-fw fa-globe"></i>语雀</a>-->
+<!--                      </span>-->
+<!--                      <span class="links-of-author-item">-->
+<!--                        <a href="https://my.oschina.net/u/3789577" target="_blank" title="GitHub"><i class="fa fa-fw fa-globe"></i>开源中国</a>-->
+<!--                      </span>-->
+<!--                      <span class="links-of-author-item">-->
+<!--                        <a href="http://weibo.com/lianggozne" target="_blank" title="微博"><i class="fa fa-fw fa-globe"></i>微博</a>-->
+<!--                      </span>-->
+<!--                      <span class="links-of-author-item">-->
+<!--                        <a href="https://juejin.im/user/57f99a330e3dd90057bb9797" target="_blank" title="掘金"><i class="fa fa-fw fa-globe"></i>掘金</a>-->
+<!--                      </span>-->
+<!--                      <span class="links-of-author-item">-->
+<!--                        <a href="https://www.zhihu.com/people/lianggzone/activities" target="_blank" title="知乎"><i class="fa fa-fw fa-globe"></i>知乎</a>-->
+<!--                      </span>-->
+<!--                      <span class="links-of-author-item">-->
+<!--                        <a href="http://www.jianshu.com/u/63635e74799e" target="_blank" title="简书"><i class="fa fa-fw fa-globe"></i>简书</a>-->
+<!--                      </span>-->
+<!--                      <span class="links-of-author-item">-->
+<!--                        <a href="https://segmentfault.com/u/lianggzone" target="_blank" title="SegmentFault"><i class="fa fa-fw fa-globe"></i>SegmentFault</a>-->
+<!--                      </span>-->
+<!--                </div>-->
+            </div>
+        </aside>
+    </div>
+</div>
+{% endblock %}

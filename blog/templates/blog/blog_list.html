@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load myfilters1 %}
+
+{% block head_extends %}
+<link rel="stylesheet" href="{% static 'list.css' %}">
+{% endblock %}
+
+{% block content %}
+<div id="container">
+    <div id="main" class="archive-part clearfix">
+        <div id="archive-page">
+            {% for blog in page_of_blogs %}
+            <section class="post" itemscope="" itemprop="blogPost" style="height: 170px;">
+
+                <a href="{% url 'blog_detail' blog.pk %}" title="{{blog.title}}" itemprop="url">
+
+                    <h1 itemprop="name">{{blog.title}}</h1>
+
+                    <time datetime="2020-11-17T14:30:00.000Z" itemprop="datePublished">作者：{{ blog.author }}</time>
+                </a>
+            </section>
+            {% endfor %}
+            <nav id="page-nav" class="clearfix archive-nav">
+            {% if page_of_blogs.has_previous %}
+                <a class="extend prev" rel="prev" href="?page={{ page_of_blogs.previous_page_number }}">« Prev</a>
+            {% endif %}
+            {% if page_of_blogs.number|judge %}
+                <a class="page-number" href="?page=1">1</a>
+                <span class="space">…</span>
+                <a class="page-number" href="?page={{ page_of_blogs.number|add:-2 }}">{{ page_of_blogs.number|add:-2 }}</a>
+                <a class="page-number" href="?page={{ page_of_blogs.number|add:-1 }}">{{ page_of_blogs.number|add:-1 }}</a>
+            {% else %}
+                {% for object in page_of_blogs.number|judge1 %}
+                    <a class="page-number" href="?page={{ object }}">{{ object }}</a>
+                {% endfor %}
+            {% endif %}
+            <span class="page-number current">{{ page_of_blogs.number }}</span>
+            {% if page_of_blogs.number|judge2:page_of_blogs.paginator.num_pages %}
+                <a class="page-number" href="?page={{ page_of_blogs.number|add:1 }}">{{ page_of_blogs.number|add:1 }}</a>
+                <a class="page-number" href="?page={{ page_of_blogs.number|add:2 }}">{{ page_of_blogs.number|add:2 }}</a>
+                <span class="space">…</span>
+                <a class="page-number" href="?page={{ page_of_blogs.paginator.num_pages }}">{{ page_of_blogs.paginator.num_pages }}</a>
+            {% else %}
+                {% for object in page_of_blogs.number|judge3:page_of_blogs.paginator.num_pages %}
+                    <a class="page-number" href="?page={{ object }}">{{ object }}</a>
+                {% endfor %}
+            {% endif %}
+            {% if page_of_blogs.has_next %}
+                <a class="extend next" rel="next" href="?page={{ page_of_blogs.next_page_number }}">Next »</a>
+            {% endif %}
+        </nav>
+        </div>
+    </div>
+
+</div>
+{% endblock %}

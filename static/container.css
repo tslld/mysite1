@@ -1,0 +1,233 @@
+#container {
+    width: 94%;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+#main {
+    margin: 2em 0 0;
+    width: 75%;
+    float: left;
+    transition: margin 0.5s ease-out;
+    line-height: 1.8;
+}
+
+#article-index {
+    margin-bottom: 30px;
+}
+
+header.article-info {
+    border-bottom: 1px solid #dbdbdb;
+    background-color: #fafafa;
+}
+
+.clearfix {
+    zoom: 1;
+}
+
+.clearfix:before, .clearfix:after {
+    content: "";
+    display: table;
+}
+
+header.article-info >h1 {
+    font-size: 200%;
+    padding-top: 0.3em;
+    padding: 0.2em 3%;
+    line-height: 1.5;
+    word-break: normal;
+    -webkit-font-smoothing: antialiased;
+    border-left: 5px solid #7ebadf;
+}
+
+#article-index a {
+    color: #2ca6cb;
+}
+
+header.article-info >p.article-time {
+    float: right;
+    margin-right: 1em;
+    padding-top: 0.1em;
+    font-size: 0.9em;
+    text-align: center;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.clearfix:before, .clearfix:after {
+    content: "";
+    display: table;
+}
+
+#main section.post {
+    background: #fafafa;
+    margin-bottom: 0.125em;
+}
+
+#main section.post a {
+    padding: 1em;
+    display: block;
+    border-left: 0.5em solid #ccc;
+    transition: border-left 0.45s;
+}
+
+#article-index a {
+    color: #2ca6cb;
+}
+
+#main section.post a p {
+    color: #817c7c;
+}
+
+
+
+.openaside {
+    display: none;
+    position: fixed;
+    right: 7.5%;
+}
+
+.openaside a {
+    display: block;
+    color: #fff;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    background: #7ebadf;
+    padding: 0.2em 0.55em;
+}
+
+#asidepart {
+    position: relative;
+    float: left;
+    width: 18%;
+    margin: 2em 0 0 3%;
+    background: #fff;
+    padding: 0.5em 2% 1em;
+}
+
+#profile .inner {
+    background: #fff;
+}
+
+.profile-block {
+    padding: 15px 20px;
+    border-bottom: 1px solid #eceff2;
+}
+
+#profile .inner .base-info #avatar {
+    display: block;
+    margin: 10px auto 20px;
+    border-radius: 6px !important;
+}
+
+#profile .inner .base-info #name {
+    margin: 0;
+    text-align: center;
+    color: #222;
+    font-size: 26px;
+    font-weight: 600;
+    line-height: 30px;
+}
+
+#profile .inner .base-info #title {
+    margin: 1em 0em;
+    display: block;
+    color: #999;
+    text-align: center;
+    font-size: 16px;
+}
+
+#profile .inner .links-of-author {
+    margin-top: 10px;
+    display: inline-block;
+}
+
+#profile .inner .links-of-author .links-of-con-item {
+    margin: 5px 0 0;
+    font-size: 12px;
+}
+
+#profile .inner .links-of-author .links-of-con-item a {
+    box-sizing: border-box;
+    display: inline-block;
+    margin-right: 0;
+    margin-bottom: 0;
+    padding: 0 5px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    text-decoration: none;
+}
+
+#profile .inner .links-of-author a {
+    vertical-align: middle;
+    border-bottom-color: #555;
+    font-size: 13px;
+}
+
+#profile .inner .links-of-author {
+    margin-top: 10px;
+    display: inline-block;
+}
+
+#profile .inner .links-of-author .links-of-author-item {
+    float: left;
+    margin: 5px 0 0;
+    width: 50%;
+}
+
+#page-nav {
+    background: #fafafa;
+    text-align: center;
+    overflow: hidden;
+}
+
+#page-nav .current {
+    color: #b8b8b8;
+    font-weight: bold;
+}
+
+#page-nav .page-number {
+    display: inline-block;
+}
+
+#page-nav a, #page-nav span {
+    padding: 0.5em 1em;
+}
+
+.current {
+    color: #7ebadf !important;
+}
+
+#page-nav .page-number {
+    display: inline-block;
+}
+
+#page-nav a {
+    color: #2ca6cb;
+}
+
+#page-nav .space {
+    color: #2ca6cb;
+}
+
+#page-nav a, #page-nav span {
+    display: inline-block;
+    padding: 0.5em 1em;
+}
+
+#page-nav .page-number {
+    display: inline-block;
+}
+
+#page-nav .next {
+    float: right;
+}
+
+#page-nav .prev {
+    float: left;
+    border-left: 0.5em solid #ccc;
+    transition: border-left 0.5s;
+}

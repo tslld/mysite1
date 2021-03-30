@@ -1,0 +1,70 @@
+header.article-info {
+    border-bottom: 1px solid #dbdbdb;
+}
+
+header.article-info {
+    background-color: #fafafa;
+}
+
+.clearfix {
+    zoom: 1;
+}
+
+header.article-info >h1 {
+    font-size: 200%;
+    padding-top: 0.3em;
+}
+
+header.article-info >h1 {
+    padding: 0.2em 3%;
+    font-size: 170%;
+    line-height: 1.5;
+    word-wrap: break-word;
+    word-break: normal;
+    -webkit-font-smoothing: antialiased;
+    border-left: 5px solid #7ebadf;
+}
+
+.post a, .page a {
+    color: #2ca6cb;
+}
+
+a {
+    text-decoration: none;
+}
+
+header.article-info >p.article-time {
+    float: right;
+    margin-right: 1em;
+    padding-top: 0.1em;
+    font-size: 0.9em;
+}
+
+header.article-info >p.article-time {
+    text-align: center;
+}
+
+header.article-info >p.article-time {
+    float: right;
+    margin-right: 1em;
+    padding-top: 0.1em;
+    font-size: 0.9em;
+}
+
+header.article-info >p.article-time {
+    text-align: center;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.clearfix:before, .clearfix:after {
+    content: "";
+    display: table;
+}
+
+.article-content {
+    padding: 1.5em 4%;
+}
+
